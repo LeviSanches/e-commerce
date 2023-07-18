@@ -39,6 +39,7 @@
 .main-header__menu a:hover {
     background-color: var(--blue);
     color: #fff;
+    cursor: pointer;
 }
 
 .container-menu {
