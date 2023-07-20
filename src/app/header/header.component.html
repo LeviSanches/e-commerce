@@ -6,15 +6,16 @@
         <nav class="main-header__menu">
             <ul>
                 <li>
-                    <a>
-                        Produtos</a></li>
+                    <a href="produtos">Produtos</a>
+                </li>
                 <li>
-                    <a>
+                    <a href="carrinho">
                         Carrinho
                         <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="badge-carrinho">{{ carrinhoService.obtemCarrinho().length }}</span>
                     </a></li>
                 <li>
-                    <a>
+                    <a href="contato">
                         Contato</a>
                     </li>
                 <li>
