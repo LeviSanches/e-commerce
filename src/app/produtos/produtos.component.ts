@@ -12,10 +12,20 @@ export class ProdutosComponent {
 
   produtos: IProduto[] | undefined;
 
-  constructor(private produtosService: ProdutosService, private route: ActivatedRoute) { }
+  constructor(
+    private produtosService: ProdutosService, private route: ActivatedRoute) { }
 
   ngOnInit():void {
-    this.produtos = this.produtosService.getAll()
+    const produtos = this.produtosService.getAll();
+    this.route.queryParamMap.subscribe(params => {
+      const descricao = params.get('descricao')?.toLowerCase();
+
+      if (descricao) {
+        this.produtos = produtos.filter(produto =>  produto.descricao.toLowerCase().includes(descricao));
+        return;
+      }
+      this.produtos = produtos;      
+    });
   }
 
 
